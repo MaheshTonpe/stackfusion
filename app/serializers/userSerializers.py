@@ -25,7 +25,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def validate_phone_no(self, phone_no):
         phone_no = self.initial_data.get("phone_no")
-        if len(phone_no) != 10 or not phone_no.isdigit():
+        if len(str(phone_no)) != 10 or not str(phone_no).isdigit():
             raise serializers.ValidationError("Invalid phone number!")
         return phone_no
 

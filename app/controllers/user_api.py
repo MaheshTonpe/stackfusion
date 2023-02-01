@@ -16,19 +16,19 @@ class UserView(ViewSet):
     def create(self, request):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        obj = User.objects.create(**serializer.data)
         
         """send email"""
         subject = "Successfully registered!"
         body = request.data
-        message = '\n'.join(body.values())
+        message = '\n'.join(str(i) for i in body.values())
         
         try:
             send_mail(subject, message, settings.EMAIL_HOST_USER, [serializer.data.get("email_id")], fail_silently=True)
         except BadHeaderError:
             return HttpResponse("Invalid header found.")
 
-        return Response("Successfully added")
+        return Response(transform_singal(obj))
 
     def edit(self, request, pk):
         row = User.objects.get(pk=pk)
@@ -44,7 +44,7 @@ class UserView(ViewSet):
 
     def retrieve(self, request, pk):
         row = self.queryset.get(pk=pk)
-        row = transform_signal(row)
+        row = transform_singal(row)
         return Response(row)
 
 
@@ -54,7 +54,7 @@ class UserView(ViewSet):
         return Response("Successfully deleted!")
 
 
-def transform_signal(instance):
+def transform_singal(instance):
     data_dict = {}
     data_dict["id"] = instance.id
     data_dict["name"] = instance.name
@@ -65,5 +65,5 @@ def transform_signal(instance):
 
 
 def map_user_objects(data):
-    return map(transform_signal, data)
+    return map(transform_singal, data)
 

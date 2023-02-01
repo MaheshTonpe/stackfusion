@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/MaheshTonpe/stackfusion/static/css/main.31d6cfe0.css",
+    "main.js": "/MaheshTonpe/stackfusion/static/js/main.00464b6c.js",
+    "static/js/787.2a6b38c0.chunk.js": "/MaheshTonpe/stackfusion/static/js/787.2a6b38c0.chunk.js",
+    "index.html": "/MaheshTonpe/stackfusion/index.html",
+    "main.00464b6c.js.map": "/MaheshTonpe/stackfusion/static/js/main.00464b6c.js.map",
+    "787.2a6b38c0.chunk.js.map": "/MaheshTonpe/stackfusion/static/js/787.2a6b38c0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.00464b6c.js"
+  ]
+}

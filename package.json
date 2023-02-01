@@ -2,6 +2,7 @@
   "name": "stackfusion",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/MaheshTonpe/stackfusion",
   "dependencies": {
     "@date-io/dayjs": "^2.16.0",
     "@emotion/react": "^11.10.5",
@@ -30,6 +31,9 @@
     "zod": "^3.20.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+ 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -52,5 +56,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
